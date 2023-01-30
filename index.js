@@ -5,7 +5,9 @@ const addItemBtn = document.getElementById("add-item-btn");
 const shoppingList = [];
 
 addItemBtn.addEventListener("click", function () {
-  shoppingList.push(itemInput.value);
+  if (shoppingList.includes(itemInput.value)) {
+    itemInput.value = "";
+  } else shoppingList.push(itemInput.value);
   renderList();
   itemInput.value = "";
 });
